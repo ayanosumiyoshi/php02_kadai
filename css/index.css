@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+html{
+	font-size: 80%;
+}
+
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 100%;
+}
+
+.text_center{
+    text-align: center;
+}
+
+.title_picture{
+    position: relative;
+}
+
+.page_title{
+    position: absolute;
+    top: 5%;
+	left: 50%;
+	transform: translate(-50%\, -50%);
+	width: 100%;
+	color: white;
+	font-size: 3rem;
+}
+
+.marindows_logo{
+    position: absolute;
+    top: 5%;
+	left: 5%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	color: white;
+	font-size: 3rem;
+}
