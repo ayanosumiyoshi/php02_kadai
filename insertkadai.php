@@ -1,8 +1,5 @@
 <?php
 // 1. POSTデータ取得
-//$name = filter_input( INPUT_GET, ","name" ); //こういうのもあるよ
-//$email = filter_input( INPUT_POST, "email" ); //こういうのもあるよ
-
 $name = $_POST['name'];
 $date = $_POST['date'];
 $starttime = $_POST['starttime'];
@@ -11,19 +8,13 @@ $comment = $_POST['comment'];
 
 
 // 2. DB接続します
-try {
-  //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=workrecord_db;charset=utf8;host=localhost','root','root');
-  //$pdo = new PDO('mysql:dbname=データベース名;charset=utf8;host=localhost','ユーザー名','パスワード'); デフォルトではユーザー名もPWもroot
-} catch (PDOException $e) {
-  exit('DBConnectError:'.$e->getMessage());
-}
-
+require_once('funcskadai.php');
+$pdo = db_conn();
 
 // ３．SQL文を用意(データ登録：INSERT)
 $stmt = $pdo->prepare(
-  "INSERT INTO workrecord_timetable (name, date, starttime, endtime, comment)
-  VALUES(:name, :date, :starttime, :endtime, :comment)"
+  "INSERT INTO workrecord_timetable (id, name, date, starttime, endtime, comment)
+  VALUES( NULL, :name, :date, :starttime, :endtime, :comment)"
 );
 
 // 4. バインド変数を用意
@@ -40,10 +31,9 @@ $status = $stmt->execute();
 // 6．データ登録処理後
 if($status==false){
   //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
-  $error = $stmt->errorInfo();
-  exit("ErrorMassage:".$error[2]);
+  sql_error($stmt);
 }else{
   //５．index.phpへリダイレクト
-  header('Location: indexkadai.php');//Locationで次に行くページを指定できる
+  redirect('indexkadai.php');//Locationで次に行くページを指定できる
 }
 ?>

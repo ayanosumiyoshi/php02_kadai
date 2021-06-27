@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html{
-	font-size: 80%;
+	font-size: 62.5%;
 }
 
 body{
@@ -10,6 +10,7 @@ body{
     width:100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 100%;
+    font-size: 2rem;
 }
 
 .text_center{
@@ -22,9 +23,9 @@ body{
 
 .page_title{
     position: absolute;
-    top: 5%;
+    top: 12%;
 	left: 50%;
-	transform: translate(-50%\, -50%);
+	transform: translate(-50%, -50%);
 	width: 100%;
 	color: white;
 	font-size: 3rem;
@@ -32,10 +33,31 @@ body{
 
 .marindows_logo{
     position: absolute;
-    top: 5%;
-	left: 5%;
+    top: 10%;
+	left: 10%;
 	transform: translate(-50%, -50%);
 	width: 100%;
 	color: white;
 	font-size: 3rem;
+}
+
+table{
+    margin: auto;
+}
+
+.back_button{
+    margin: 50px, 0, 0, 0;
+    padding: 50px, 0, 0,0;
+}
+
+.footer{
+    padding: 10px 0 10px 0;
+    width: 100%;
+    font-size: 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,-50%);
+    background-color: rgb(93, 81, 201);
+    color: white;
 }

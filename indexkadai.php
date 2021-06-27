@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="css/index.css">
 <head>
   <meta charset="UTF-8">
-  <title>勤怠登録</title>
+  <title>Marindows - 勤怠登録</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <!-- 入力部分 -->
 
 <div class="page_title text_center">
-  <p>勤怠管理</p>
+  <p>Marindows  勤怠管理</p>
 </div>
 
 <div class="marindows_logo">
@@ -63,9 +63,15 @@ if($status==false) {
   //Selectデータの数だけ自動でループしてくれる
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
+  
     $yamada .= "<p>";
-    $yamada .= $result['name'].'／'.$result['date'].'／'.$result['starttime'].'／'.$result['endtime'].'('.$result['endtime-starttime'].')';
-    $yamada .= "</p>";
+    $yamada .= '<a href="detailkadai.php?id='.$result["id"].'">';
+    $yamada .= $result['date'].'／'.$result['starttime'].'／'.$result['endtime'];
+    $yamada .= '</a>';
+    $yamada .= '<a href="deletekadai.php?id='.$result["id"].'">';
+    $yamada .= ' [削除]';
+    $yamada .= '</a>';
+    $yamada .= '</p>';
   }
 }
 
@@ -85,7 +91,12 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $tanaka .= "<p>";
-    $tanaka .= $result['name'].'／'.$result['date'].'／'.$result['starttime'].'／'.$result['endtime'];
+    $tanaka .= '<a href="detailkadai.php?id='.$result["id"].'">';
+    $tanaka .= $result['date'].'／'.$result['starttime'].'／'.$result['endtime'];
+    $tanaka .= '</a>';
+    $tanaka .= '<a href="deletekadai.php?id='.$result["id"].'">';
+    $tanaka .= ' [削除]';
+    $tanaka .= '</a>';
     $tanaka .= "</p>";
   }
 }
@@ -106,7 +117,12 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $suzuki .= "<p>";
-    $suzuki .= $result['name'].'／'.$result['date'].'／'.$result['starttime'].'／'.$result['endtime'];
+    $suzuki .= '<a href="detailkadai.php?id='.$result["id"].'">';
+    $suzuki .= $result['date'].'／'.$result['starttime'].'／'.$result['endtime'];
+    $suzuki .= '</a>';
+    $suzuki .= '<a href="deletekadai.php?id='.$result["id"].'">';
+    $suzuki .= ' [削除]';
+    $suzuki .= '</a>';
     $suzuki .= "</p>";
   }
 }
@@ -123,4 +139,12 @@ if($status==false) {
  </div>
 
 </body>
+
+<footer>
+    <p class="footer text_center">
+        Copyright © 2021 Mitsubishi Innovation Lab All Rights Reserved.
+    </p>
+
+</footer>
+
 </html>
