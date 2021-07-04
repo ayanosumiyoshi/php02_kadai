@@ -1,9 +1,19 @@
 <?php
+
+//SESSIONスタート
+session_start();
+
 //select.phpから処理を持ってくる
 //1.外部ファイル読み込みしてDB接続(funcs.phpを呼び出して)
 
 require_once('funcskadai.php');
 $pdo = db_conn();
+
+//ログインチェック
+loginCheck();
+$user_name = $_SESSION['name'];
+//echo $user_name;
+//以下ログインユーザーのみ
 
 //2.対象のIDを取得
 $id = $_GET["id"];

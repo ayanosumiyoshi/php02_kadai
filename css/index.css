@@ -5,12 +5,10 @@ html{
 }
 
 body{
-    margin:0;
-    padding:0;
     width:100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 100%;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .text_center{
@@ -48,6 +46,11 @@ table{
 .back_button{
     margin: 50px, 0, 0, 0;
     padding: 50px, 0, 0,0;
+}
+
+.logout_button{
+    margin: 50px, 0, 0, 0;
+    padding: 50px, 0, 0,0;  
 }
 
 .footer{

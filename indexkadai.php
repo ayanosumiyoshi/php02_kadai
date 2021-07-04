@@ -39,15 +39,19 @@
 <!-- 出力部分 -->
 <?php
 
+//SESSIONスタート
+session_start();
 
 //1.  DB接続します
-try {
-  //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=workrecord_db;charset=utf8;host=localhost','root','root');
-} catch (PDOException $e) {
-  exit('DBConnectError:'.$e->getMessage());
-}
+require_once('funcskadai.php');
+$pdo = db_conn();
 
+//ログインチェック
+loginCheck();
+$user_name = $_SESSION['name'];
+//echo $user_name;
+
+//以下ログインユーザーのみ
 //２．SQL文を用意(データ取得：SELECT)
 $stmt = $pdo->prepare("SELECT * FROM workrecord_timetable WHERE name = '山田'");
 //3. 実行
@@ -136,6 +140,10 @@ if($status==false) {
   <tr><th>山田</th><th>田中</th><th>鈴木</th></tr>
   <tr><td><?=$yamada?></td><td><?=$tanaka?></td><td><?=$suzuki?></td></tr>
   </table>
+ </div>
+
+<div class="text_center logout_button">
+  <input type="button" onclick="location.href='logoutkadai.php'" value="ログアウト">
  </div>
 
 </body>
