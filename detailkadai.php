@@ -24,7 +24,6 @@ $stmt = $pdo->prepare("SELECT * FROM workrecord_timetable WHERE id = :id");
 $stmt -> bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
-
 //4．データ表示
 $view = "";
 if ($status == false) {
